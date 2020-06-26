@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="s3-utils",
-    version="0.0.2",
+    version="0.0.1",
     author="Falak Sher Marri",
     author_email="marribaloch128@gmail.com",
     description="Utilities for AWS S3",
