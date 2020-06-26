@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="s3-utils",
-    version="0.0.1",
+    version="0.0.2",
     author="Falak Sher Marri",
     author_email="marribaloch128@gmail.com",
     description="Utilities for AWS S3",
@@ -15,8 +15,11 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: GNU GENERAL PUBLIC LICENSE (GPL)",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
+    ],
+    install_requires=[
+      'boto3',
     ],
     python_requires='>=3.7',
 )
