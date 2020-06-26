@@ -1,10 +1,10 @@
-# s3-utils
-**s3-utils** is a wrapper around *s3-related* functionalities of AWS's **boto3** package.
+# s3-wrapper
+**s3-wrapper** is a wrapper around *s3-related* functionalities of AWS's **boto3** package.
 
 ## Quick Start
 First, install the library:
 ```
-pip install s3-utils
+pip install s3-wrapper
 ```
 Next, set up credentials (in e.g. ```~/.aws/credentials```):
 ```
