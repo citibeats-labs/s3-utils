@@ -2,7 +2,7 @@
 
 #### **Did you find a bug?**
 
-* **Do not open up a GitHub issue if the bug is a security vulnerability**, and instead send us an email at security@citibeats.net.
+* **Do not open up a GitHub issue if the bug is a security vulnerability**, and instead send us an email at labs@citibeats.net.
 
 * **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/citibeats-labs/s3-utils/issues).
 
@@ -16,7 +16,7 @@
 
 #### **Do you intend to add a new feature or change an existing one?**
 
-* Suggest your change at suggestions@citibeats.net.
+* Suggest your change at labs@citibeats.net.
 
 * Do not open an issue on GitHub until you have collected positive feedback about the change. GitHub issues are primarily intended for bug reports and fixes.
 

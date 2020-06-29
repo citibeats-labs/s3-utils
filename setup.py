@@ -6,8 +6,8 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="s3-wrapper",
     version="0.0.2",
-    author="Falak Sher Marri",
-    author_email="marribaloch128@gmail.com",
+    author="Citibeats Labs",
+    author_email="labs@citibeats.net",
     description="Utilities for AWS S3",
     long_description=long_description,
     long_description_content_type="text/markdown",
