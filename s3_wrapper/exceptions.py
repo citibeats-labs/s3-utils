@@ -115,3 +115,37 @@ class CopyObjectException(Exception):
       return f'CopyObjectException, {self.message}'
     else:
       return 'CopyObjectException: Failed to copy an object'
+
+
+class PresignedUrlGenerationException(Exception):
+  """
+  Should be raised when handler to generate presigned-url.
+  """
+  def __init__(self, *args):
+    if args:
+      self.message = args[0]
+    else:
+      self.message = None
+  
+  def __str__(self):
+    if self.message:
+      return f'PresignedUrlGenerationException, {self.message}'
+    else:
+      return 'PresignedUrlGenerationException: Failed to generate presigned-url.'
+
+
+class DownloadFileException(Exception):
+  """
+  Should be raised when handler fails to download a file.
+  """
+  def __init__(self, *args):
+    if args:
+      self.message = args[0]
+    else:
+      self.message = None
+  
+  def __str__(self):
+    if self.message:
+      return f'DownloadFileException, {self.message}'
+    else:
+      return 'DownloadFileException: Failed to download the file.'

@@ -115,3 +115,36 @@ If you want to peform this operation on a bucket other than default, use:
 ```
 s3.find_files_with_prefix('/organization/unprocessed/prefix', 'bucket_name')
 ```
+
+### ```file_exists```
+Returns true if a file exists in a given bucket. Usage:
+```
+exists = s3.file_exists('object_key')
+```
+
+If you want to peform this operation on a bucket other than default, use:
+```
+exists = s3.file_exists('object_key', 'bucket_name')
+```
+
+### ```generate_presigned_url```
+Generates a presigned-url for an object in a bucket which expires after given *expiration* seconds.
+```
+url = s3.generate_presigned_url('object_key', 3600)
+```
+
+If you want to peform this operation on a bucket other than default, use:
+```
+url = s3.generate_presigned_url('object_key', 3600, 'bucket_name')
+```
+
+### ```download_file```
+Downloads a file from a bucket to a given path on disk.
+```
+s3.download_file('object_key', '/home/directory/path.json')
+```
+
+If you want to peform this operation on a bucket other than default, use:
+```
+s3.download_file('object_key', '/home/directory/path.json', 'bucket_name')
+```

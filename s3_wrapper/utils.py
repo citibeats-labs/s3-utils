@@ -12,6 +12,7 @@ class S3Utils:
       aws_profile = os.getenv('AWS_PROFILE_NAME')
       session = boto3.Session(profile_name=aws_profile)
       self._s3 = session.resource('s3')
+      self._s3_client = self._s3.meta.client
       if os.getenv('S3_BUCKET_NAME'):
         self._default_bucket = self._s3.Bucket(os.getenv('S3_BUCKET_NAME'))
       self._default_bucket_name = os.getenv('S3_BUCKET_NAME')
@@ -101,3 +102,33 @@ class S3Utils:
       return objects
     except Exception as e:
       raise exceptions.DirectoryReadException
+  
+  def generate_presigned_url(self, key: str, expiration: int, bucket_name: str=None) -> str:
+    try:
+      bucket_name = bucket_name if bucket_name is not None else self._default_bucket_name
+      url = self._s3_client.generate_presigned_url(
+        'get_object',
+        Params={
+          'Bucket': bucket_name,
+          'Key': key
+        },
+        ExpiresIn=expiration
+      )
+      return url
+    except Exception as e:
+      raise exceptions.PresignedUrlGenerationException    
+  
+  def download_file(self, key: str, file_path: os.PathLike, bucket_name: str=None):
+    try:
+      bucket_name = bucket_name if bucket_name is not None else self._default_bucket_name
+      self._s3_client.download_file(bucket_name, key, file_path)
+    except Exception as e:
+      raise exceptions.DownloadFileException
+  
+  def file_exists(self, key: str, bucket_name: str=None) -> bool:
+    bucket_name = bucket_name if bucket_name is not None else self._default_bucket_name
+    try:
+      self._s3.Object(bucket_name, key).load()
+      return True
+    except:
+      return False
