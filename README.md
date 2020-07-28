@@ -34,12 +34,12 @@ s3.set_default_bucket('bucket_name')
 ### ```move_object```
 Assigns a new key to the object inside a bucket. The process involves creating a new object, copy the old object to new object, and delete old object. Usage:
 ```
-s3.move_object('directory/unprocessed/file.json', 'directory/processed/file.json')
+s3.move_object('directory/subdirectory1/file.json', 'directory/subdirectory2/file.json')
 ```
 
 If you want to peform this operation on a bucket other than default, use:
 ```
-s3.move_object('directory/unprocessed/file.json', 'directory/processed/file.json', 'bucket_name')
+s3.move_object('directory/subdirectory1/file.json', 'directory/subdirectory2/file.json', 'bucket_name')
 ```
 
 ### ```copy_object```
@@ -73,13 +73,13 @@ s3.create_object('key', formatted_data, 'bucket_name')
 ### ```upload_file```
 Uploads a file on disk storage as an object on S3. Usage:
 ```
-file_path = os.path.join('/tmp', 'unprocessed', 'response.json')
+file_path = os.path.join('/tmp', 'subdirectory', 'response.json')
 s3.upload_file('file_key', file_path)
 ```
 
 If you want to peform this operation on a bucket other than default, use:
 ```
-file_path = os.path.join('/tmp', 'unprocessed', 'response.json')
+file_path = os.path.join('/tmp', 'subdirectory', 'response.json')
 s3.upload_file('file_key', file_path, 'bucket_name')
 ```
 
@@ -108,12 +108,12 @@ s3.delete_objects(['key1, key2', 'key3'], 'bucket_name')
 ### ```find_files_with_prefix```
 Finds files/objects matching the given prefix. This is helpful if you want to get objects in a specific (hypothetical) directory. Usage:
 ```
-s3.find_files_with_prefix('/organization/unprocessed/prefix')
+s3.find_files_with_prefix('/directory/subdirectory/prefix')
 ```
 
 If you want to peform this operation on a bucket other than default, use:
 ```
-s3.find_files_with_prefix('/organization/unprocessed/prefix', 'bucket_name')
+s3.find_files_with_prefix('/directory/subdirectory/prefix', 'bucket_name')
 ```
 
 ### ```file_exists```
