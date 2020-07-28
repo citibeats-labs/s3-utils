@@ -10,6 +10,8 @@ class S3Utils:
   def __init__(self):
     try:
       aws_profile = os.getenv('AWS_PROFILE_NAME')
+      if aws_profile == '':
+          aws_profile = None
       session = boto3.Session(profile_name=aws_profile)
       self._s3 = session.resource('s3')
       self._s3_client = self._s3.meta.client
